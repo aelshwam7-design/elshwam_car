@@ -1,0 +1,583 @@
+    /* ==========================
+   RESET
+========================== */
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Roboto, sans-serif;
+        background: #f8f8f8;
+        overflow-x: hidden;
+    }
+    /* ==========================
+   HEADER
+========================== */
+    
+    .header {
+        background: linear-gradient(135deg, #ffffff 0%, #e0f7fa 50%, #b3e5fc 100%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        flex-wrap: wrap;
+    }
+    
+    .logo {
+        width: 220px;
+        max-width: 100%;
+    }
+    
+    .header-links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .header-links a {
+        text-decoration: none;
+        color: #ff0101;
+        transition: .3s;
+    }
+    
+    .header-links a:hover {
+        color: #3b5bc5ef;
+    }
+    
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .header-actions img {
+        width: 45px;
+    }
+    
+    .btn {
+        background: #ee626b;
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: .3s;
+    }
+    
+    .btn:hover {
+        background: #f03e4a;
+    }
+    /* ==========================
+   LANDING PAGE
+========================== */
+    
+    .landing-page {
+        background: linear-gradient(135deg, #ffffff 0%, #e0f7fa 50%, #b3e5fc 100%);
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+        padding: 50px;
+        border-radius: 0 0 40px 40px;
+        flex-wrap: wrap;
+    }
+    
+    .landing-page-left-section {
+        flex: 1;
+        min-width: 300px;
+    }
+    
+    .landing-page-left-section h1 {
+        margin: 20px 0;
+        font-size: 42px;
+    }
+    
+    .landing-page-left-section p {
+        line-height: 1.8;
+    }
+    
+    .landing-page-search {
+        display: flex;
+        gap: 0px;
+        margin-top: 50px;
+        flex-wrap: wrap;
+    }
+    
+    .landing-page-search input {
+        flex: 1;
+        min-width: 80px;
+        border: none;
+        outline: none;
+        border-radius: 30px;
+        padding: 12px 20px;
+        background-color: #837a7a;
+        color: #533b3b;
+    }
+    
+    .landing-page-image-container {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        justify-items: center;
+        align-items: center;
+        min-width: 300px;
+    }
+    
+    .landing-page-image-container img {
+        width: 100%;
+        max-width: 140px;
+        height: 80px;
+        object-fit: contain;
+        transition: .3s;
+    }
+    
+    .landing-page-image-container img:hover {
+        transform: scale(1.08);
+    }
+    /* ==========================
+   TRENDING
+========================== */
+    
+    .trending-container {
+        width: 90%;
+        margin: 50px auto 20px;
+    }
+    
+    .trending-container span {
+        color: #ee626b;
+        font-weight: bold;
+    }
+    
+    .trendingHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .trending-cards {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+    
+    .card {
+        width: 280px;
+        background: #ececec;
+        border-radius: 18px;
+        overflow: hidden;
+        transition: .3s;
+    }
+    
+    .card:hover {
+        transform: translateY(-8px);
+    }
+    
+    .main-img {
+        width: 100%;
+        display: block;
+    }
+    
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+    }
+    
+    .card-footer img {
+        width: 40px;
+    }
+    
+    .card-name h3 {
+        margin-top: 5px;
+        font-size: 18px;
+    }
+    /* ==========================
+   LOGOS SECTION
+========================== */
+    
+    .landing-page-image-container {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        justify-items: center;
+        align-items: center;
+        min-width: 300px;
+    }
+    
+    .landing-page-image-container img {
+        width: 100%;
+        max-width: 140px;
+        height: 80px;
+        object-fit: contain;
+        transition: .3s;
+    }
+    
+    .landing-page-image-container img:hover {
+        transform: scale(1.08);
+    }
+    /* ==========================
+   TRENDING
+========================== */
+    
+    .trending-container {
+        width: 90%;
+        margin: 50px auto 20px;
+    }
+    
+    .trending-container span {
+        color: #ee626b;
+        font-weight: bold;
+    }
+    
+    .trendingHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .trending-cards {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+    
+    .card {
+        width: 280px;
+        background: #ececec;
+        border-radius: 18px;
+        overflow: hidden;
+        transition: .3s;
+    }
+    
+    .card:hover {
+        transform: translateY(-8px);
+    }
+    
+    .main-img {
+        width: 100%;
+        display: block;
+    }
+    
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+    }
+    
+    .card-footer img {
+        width: 40px;
+    }
+    
+    .card-name h3 {
+        margin-top: 5px;
+        font-size: 18px;
+    }
+    /* تنسيق الكارت الواحد */
+    
+    .card {
+        background: #ffffff;
+        border: 1px solid #dcdcdc;
+        border-radius: 12px;
+        width: 260px;
+        padding: 15px;
+        position: relative;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        font-family: Tahoma, sans-serif;
+        display: inline-block;
+        margin: 10px;
+        vertical-align: top;
+        text-align: right;
+        /* لو الموقع عربي */
+    }
+    /* علامة Best Seller البرتقالي فوق */
+    
+    .badge {
+        background-color: #f39c12;
+        color: white;
+        font-size: 10px;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    /* صورة المنتج */
+    
+    .main-img {
+        width: 100%;
+        height: 150px;
+        object-fit: contain;
+        margin-bottom: 15px;
+    }
+    /* اسم الماركة والعنوان */
+    
+    .brand-name {
+        color: #888;
+        font-size: 12px;
+        display: block;
+    }
+    
+    .product-title {
+        font-size: 15px;
+        color: #333;
+        margin: 5px 0 10px 0;
+    }
+    /* قائمة المواصفات الرفيعة */
+    
+    .product-specs {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 15px 0;
+        font-size: 11px;
+        color: #666;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        padding: 8px 0;
+    }
+    
+    .product-specs li {
+        margin-bottom: 4px;
+    }
+    /* تنسيق الأسعار */
+    
+    .price-box {
+        margin-bottom: 5px;
+    }
+    
+    .old-price {
+        text-decoration: line-through;
+        color: #999;
+        font-size: 12px;
+        margin-left: 8px;
+    }
+    
+    .current-price {
+        color: #d9534f;
+        /* لون احمر مميز للسعر */
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .current-price small {
+        font-size: 10px;
+        color: #777;
+    }
+    
+    .save-tag {
+        background-color: #d9534f;
+        color: white;
+        font-size: 10px;
+        padding: 2px 6px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+    /* زرار Add to Cart الأخضر */
+    
+    .add-to-cart-btn {
+        background-color: #ee626b;
+        border: none;
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .add-to-cart-btn:hover {
+        background-color: #cc3f48;
+    }
+    
+    .trending-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .trending-cards .card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .landing-page-search input {
+        background-color: #6c8dbd;
+        /* أسود فخم ومريح */
+        color: #ffffff;
+        /* الكلام اللي هيتكتب جوه يكون أبيض عشان يوضح */
+        border: 2px solid #6c8dbd;
+        /* إطار خفيف شيك */
+        border-radius: 30px;
+        /* عشان يبقى مدور وناعيم زي ما هو */
+        padding: 12px 20px;
+    }
+    /* لون الكلام التوضيحي (Placeholder) اللي بيكون مكتوب جوه قبل ما تكتب */
+    
+    .landing-page-search input::placeholder {
+        color: #ffffff;
+    }
+    
+    .landing-page-left-section h1,
+    .landing-page-left-section p {
+        color: #629aee;
+        /* لون غامق عشان يقرأ بوضوح تام فوق الخلفية الفاتحة */
+    }
+    
+    .trending-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* بتخليهم عمودين قد بعض جنب بعض */
+        gap: 15px;
+        /* المسافة اللي بين الكروت وبعضها */
+        padding: 10px;
+    }
+    
+    .card {
+        height: auto !important;
+        min-height: unset !important;
+        padding: 8px !important;
+    }
+    
+    .card img {
+        height: 110px !important;
+        object-fit: contain !important;
+    }
+    /* خلفية النافذة المنبثقة */
+    
+    .product-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    /* صندوق المحتوى الأبيض */
+    
+    .modal-content {
+        background-color: #fff;
+        margin: 4% auto;
+        padding: 30px;
+        width: 85%;
+        max-width: 900px;
+        border-radius: 10px;
+        position: relative;
+    }
+    /* زر الإغلاق (X) */
+    
+    .close-btn {
+        position: absolute;
+        left: 20px;
+        top: 15px;
+        font-size: 35px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+    }
+    
+    .close-btn:hover {
+        color: #ee626b;
+    }
+    /* تقسيم المحتوى لجزء صور وجزء وصف */
+    
+    .modal-grid {
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+    }
+    
+    .modal-gallery {
+        flex: 1;
+    }
+    
+    #main-display-img {
+        width: 100%;
+        height: 300px;
+        object-fit: contain;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        margin-bottom: 10px;
+    }
+    
+    .thumbnail-images {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .thumbnail-images img {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    
+    .thumbnail-images img:hover {
+        border-color: #ee626b;
+    }
+    
+    .modal-details {
+        flex: 1;
+    }
+    
+    .modal-details h2 {
+        margin-bottom: 10px;
+        color: #222;
+    }
+    
+    .modal-price {
+        font-size: 22px;
+        color: #ee626b;
+        font-weight: bold;
+        margin: 15px 0;
+    }
+    
+    .long-description {
+        margin: 20px 0;
+        color: #555;
+        line-height: 1.6;
+    }
+    
+    .modal-cart-btn {
+        background-color: #ee626b;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+    }
+    
+    .modal-cart-btn:hover {
+        background-color: #ee626b;
+    }

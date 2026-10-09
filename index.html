@@ -13,13 +13,13 @@
     <meta name="google-site-verification" content="WrYSeGlJHgmanwtb8EWL_xaGE7k5ysZZuD9s4r6VV44" />
     <style>
          :root {
-            --primary: #e63946;
-            --primary-dark: #c5283d;
-            --dark-bg: #0f172a;
+            --primary: #ff7a1a;
+            --primary-dark: #e8590c;
+            --dark-bg: #0a1020;
             --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
+            --text-main: #121a30;
+            --text-muted: #5b6785;
+            --border-color: #e3e8f2;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
@@ -29,7 +29,7 @@
         }
         
         body {
-            background-color: #f8fafc;
+            background-color: #f4f6fb;
             color: var(--text-main);
             margin: 0;
             padding: 0;
@@ -38,7 +38,7 @@
         /* --- HEADER --- */
         
         .header {
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(10, 16, 32, 0.88);
             backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
@@ -64,7 +64,7 @@
         }
         
         .header-links a {
-            color: #cbd5e1;
+            color: #c9d3ea;
             text-decoration: none;
             font-weight: 600;
             font-size: 15px;
@@ -73,7 +73,7 @@
         
         .header-links a:hover {
             color: #ffffff;
-            text-shadow: 0 0 10px rgba(230, 57, 70, 0.5);
+            text-shadow: 0 0 10px rgba(255, 122, 26, 0.5);
         }
         
         .header-actions {
@@ -83,7 +83,7 @@
         }
         
         .cart-icon-btn {
-            background: linear-gradient(135deg, #ff6b6b, #15172a);
+            background: linear-gradient(135deg, #ff8a3d, #1b2548);
             color: white;
             border: none;
             padding: 10px 18px;
@@ -94,13 +94,13 @@
             align-items: center;
             gap: 8px;
             font-size: 14px;
-            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 122, 26, 0.3);
             transition: var(--transition);
         }
         
         .cart-icon-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(230, 57, 70, 0.4);
+            box-shadow: 0 6px 16px rgba(255, 122, 26, 0.4);
         }
         
         .btn {
@@ -112,17 +112,17 @@
             font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 122, 26, 0.3);
         }
         
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(230, 57, 70, 0.4);
+            box-shadow: 0 6px 16px rgba(255, 122, 26, 0.4);
         }
         /* --- LANDING PAGE --- */
         
         .landing-page {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: radial-gradient(900px 420px at 85% 10%, rgba(255, 122, 26, 0.22), transparent 60%), linear-gradient(135deg, #0a1020 0%, #121b36 55%, #1b2750 100%);
             color: white;
             padding: 60px 5%;
             display: flex;
@@ -141,15 +141,15 @@
         }
         
         .landing-page-left-section span {
-            background: rgba(230, 57, 70, 0.2);
-            color: #ff6b6b;
+            background: rgba(255, 122, 26, 0.16);
+            color: #ffa766;
             padding: 6px 14px;
             border-radius: 30px;
             font-size: 13px;
             font-weight: 700;
             display: inline-block;
             margin-bottom: 15px;
-            border: 1px solid rgba(230, 57, 70, 0.3);
+            border: 1px solid rgba(255, 122, 26, 0.3);
         }
         
         .landing-page-left-section h1 {
@@ -157,13 +157,13 @@
             font-weight: 900;
             line-height: 1.2;
             margin-bottom: 20px;
-            background: linear-gradient(to left, #ffffff, #94a3b8);
+            background: linear-gradient(to left, #ffffff, #b9c5e3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
         .landing-page-left-section p {
-            color: #94a3b8;
+            color: #aab6d3;
             font-size: 16px;
             margin-bottom: 30px;
             line-height: 1.6;
@@ -227,7 +227,7 @@
         }
         
         .search-dropdown-item:hover {
-            background: #f8fafc;
+            background: #f6f8fd;
             color: var(--primary);
         }
         
@@ -237,7 +237,7 @@
             object-fit: contain;
             margin-left: 12px;
             border-radius: 8px;
-            background: #f1f5f9;
+            background: #eef2fa;
             padding: 4px;
         }
         
@@ -325,15 +325,15 @@
         .card:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-color: #cbd5e1;
+            border-color: #c9d3ea;
         }
         
         .card .badge {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: #eff6ff;
-            color: #004190e5;
+            background: #fff1e6;
+            color: #c2410c;
             font-size: 11px;
             font-weight: 800;
             padding: 4px 10px;
@@ -378,7 +378,7 @@
             list-style: none;
             padding: 0;
             margin: 0 0 15px 0;
-            background: #f8fafc;
+            background: #f6f8fd;
             padding: 10px;
             border-radius: 8px;
             font-size: 12px;
@@ -420,7 +420,7 @@
         
         .save-tag {
             font-size: 11px;
-            color: #ff6b6b;
+            color: #e8590c;
             font-weight: 700;
             margin-bottom: 15px;
         }
@@ -439,7 +439,7 @@
         
         .add-to-cart-btn:hover {
             background: var(--primary);
-            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 122, 26, 0.3);
         }
         /* --- MODALS --- */
         
@@ -452,7 +452,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(15, 23, 42, 0.6);
+            background-color: rgba(10, 16, 32, 0.62);
             backdrop-filter: blur(5px);
         }
         
@@ -492,7 +492,7 @@
             font-weight: bold;
             cursor: pointer;
             transition: var(--transition);
-            background: #f1f5f9;
+            background: #eef2fa;
             width: 35px;
             height: 35px;
             display: flex;
@@ -518,7 +518,7 @@
             width: 100%;
             height: 250px;
             object-fit: contain;
-            background: #f8fafc;
+            background: #f6f8fd;
             border-radius: 12px;
             padding: 10px;
             border: 1px solid var(--border-color);
@@ -535,7 +535,7 @@
             height: 60px;
             object-fit: contain;
             border-radius: 8px;
-            background: #f8fafc;
+            background: #f6f8fd;
             border: 1px solid var(--border-color);
             cursor: pointer;
             padding: 4px;
@@ -561,7 +561,7 @@
         }
         
         .long-description {
-            background: #f8fafc;
+            background: #f6f8fd;
             padding: 15px;
             border-radius: 12px;
             margin-bottom: 20px;
@@ -596,7 +596,7 @@
         
         .modal-cart-btn:hover {
             background: var(--primary-dark);
-            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.4);
+            box-shadow: 0 4px 12px rgba(255, 122, 26, 0.4);
         }
         /* --- CART ITEMS MODAL STYLING --- */
         
@@ -629,7 +629,7 @@
         .cart-actions-row button {
             padding: 4px 10px;
             cursor: pointer;
-            background: #f1f5f9;
+            background: #eef2fa;
             border: 1px solid var(--border-color);
             border-radius: 6px;
             font-weight: 700;
@@ -670,7 +670,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(15, 23, 42, 0.6);
+            background-color: rgba(10, 16, 32, 0.62);
             backdrop-filter: blur(5px);
         }
         
@@ -737,11 +737,11 @@
         
         .pay-method:has(input:checked) {
             border-color: var(--primary);
-            background: #fff5f5;
+            background: #fff4ea;
         }
         
         .checkout-summary {
-            background: #f8fafc;
+            background: #f6f8fd;
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 12px;
@@ -760,7 +760,7 @@
             font-weight: 700;
             cursor: pointer;
             margin-top: 12px;
-            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 122, 26, 0.3);
         }
         
         .pay-now-btn:disabled {
@@ -849,6 +849,14 @@
                 font-size: 12px;
             }
         }
+
+        /* --- STOCK --- */
+        .stock-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; margin: 0 0 10px; }
+        .stock-tag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+        .stock-tag.in { color: #15803d; }
+        .stock-tag.out { color: #b91c1c; }
+        .card.is-out .main-img { filter: grayscale(1); opacity: .55; }
+        .card.is-out .add-to-cart-btn, .modal-cart-btn:disabled { background: #cbd2e1; color: #6b7590; cursor: not-allowed; box-shadow: none; }
     </style>
 </head>
 
@@ -3301,6 +3309,59 @@
             } else {
                 alert("من فضلك اكتب اسم المنتج أولاً!");
             }
+        }
+    </script>
+
+    <script src="firebase-config.js"></script>
+    <script type="module">
+        // حالة المخزون من Firestore: مجموعة "stock"، كل منتج مستند باسم id بتاعه { inStock: true/false }
+        // لو المنتج مالوش مستند يتعامل كأنه متوفر. لو الإعدادات فاضية الموقع بيشتغل زي الأول.
+        const cfg = window.FIREBASE_CONFIG;
+        const outOfStock = new Set();
+        window.isOutOfStock = id => outOfStock.has(id);
+
+        const origAdd = window.addToCart;
+        window.addToCart = function(id, name, price, image) {
+            if (outOfStock.has(id)) { alert("المنتج ده غير متوفر حالياً."); return; }
+            return origAdd(id, name, price, image);
+        };
+
+        function paint() {
+            document.querySelectorAll('.card[id^="card-"]').forEach(card => {
+                const id = card.id.replace('card-', '');
+                const out = outOfStock.has(id);
+                card.classList.toggle('is-out', out);
+                let tag = card.querySelector('.stock-tag');
+                if (!tag) {
+                    tag = document.createElement('span');
+                    card.querySelector('.add-to-cart-btn').before(tag);
+                }
+                tag.className = 'stock-tag ' + (out ? 'out' : 'in');
+                tag.textContent = out ? 'غير متوفر' : 'متوفر';
+                const btn = card.querySelector('.add-to-cart-btn');
+                btn.disabled = out;
+                btn.textContent = out ? 'غير متوفر' : 'أضف للسلة';
+            });
+            const mb = document.querySelector('.modal-cart-btn');
+            if (mb) { const o = outOfStock.has(currentActiveProductId); mb.disabled = o; mb.textContent = o ? 'غير متوفر' : 'أضف للسلة'; }
+            // شيل أي منتج خلص من السلة
+            const before = cart.length;
+            for (let i = cart.length - 1; i >= 0; i--) if (outOfStock.has(cart[i].id)) cart.splice(i, 1);
+            if (cart.length !== before) { saveCart(); updateCartCount(); alert("اتشال من السلة منتج بقى غير متوفر."); }
+        }
+        const _open = window.openProductModal;
+        if (_open) window.openProductModal = function(id) { const r = _open.apply(this, arguments); paint(); return r; };
+
+        paint();
+        if (cfg && cfg.projectId) {
+            const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js");
+            const { getFirestore, collection, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
+            const db = getFirestore(initializeApp(cfg));
+            onSnapshot(collection(db, "stock"), snap => {
+                outOfStock.clear();
+                snap.forEach(d => { if (d.data().inStock === false) outOfStock.add(d.id); });
+                paint();
+            }, err => console.error("stock:", err));
         }
     </script>
 </body>

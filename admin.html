@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إدارة المخزون - الشوام</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#ff7a1a;--ink:#121a30;--muted:#5b6785;--line:#e3e8f2}
+*{box-sizing:border-box;font-family:'Cairo',sans-serif}
+body{margin:0;background:#f4f6fb;color:var(--ink)}
+header{background:#0a1020;color:#fff;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
+main{max-width:900px;margin:24px auto;padding:0 4%}
+.box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px;margin-bottom:10px}
+button{background:var(--primary);color:#fff;border:0;border-radius:10px;padding:11px 18px;font-weight:700;cursor:pointer}
+button.ghost{background:transparent;border:1px solid #ffffff55}
+.bar{display:flex;gap:10px;margin-bottom:14px}.bar input{margin:0}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.row img{width:46px;height:46px;object-fit:contain;background:#f6f8fd;border-radius:8px}
+.row .t{flex:1;font-weight:700;font-size:14px}
+.sw{position:relative;width:96px;text-align:center;border-radius:999px;padding:7px 0;font-size:13px;font-weight:700;cursor:pointer;user-select:none}
+.sw.in{background:#dcfce7;color:#15803d}.sw.out{background:#fee2e2;color:#b91c1c}
+.msg{color:#b91c1c;font-size:13px;margin-top:8px}
+</style></head>
+<body>
+<header><strong>إدارة المخزون</strong><button class="ghost" id="logout" style="display:none">تسجيل خروج</button></header>
+<main>
+ <div id="login" class="box">
+  <h3 style="margin-top:0">تسجيل دخول المدير</h3>
+  <input id="em" type="email" placeholder="الإيميل" autocomplete="username">
+  <input id="pw" type="password" placeholder="الباسورد" autocomplete="current-password">
+  <button id="go">دخول</button><div class="msg" id="msg"></div>
+ </div>
+ <div id="panel" style="display:none">
+  <div class="bar"><input id="q" placeholder="ابحث عن منتج..."></div>
+  <div class="box" id="list"></div>
+ </div>
+</main>
+<script src="firebase-config.js"></script>
+<script type="module">
+const PRODUCTS = [{"id": "product1", "title": "بطارية فارتا TD70L", "img": "img/vrt.png"}, {"id": "product2", "title": "بطارية Hugel TD70L", "img": "img/hu00.webp"}, {"id": "product3", "title": "إطار تورك صيني", "img": "img/up.to3.webp"}, {"id": "product4", "title": "إطار تورك صيني", "img": "img/torque_tq05-.webp"}, {"id": "product5", "title": "إطار GT 205/75R14", "img": "img/gt14.jpg"}, {"id": "product6", "title": "إطار KORYO صيني", "img": "img/KORIO.avif"}, {"id": "product7", "title": "إطار Lion sport Hp (Thailand)", "img": "img/مهخ.jpg"}, {"id": "product8", "title": "إطار LingLong TIRE (Thailand)", "img": "img/LINGLONG.webp"}, {"id": "product9", "title": "بطارية EAS (Turkey)", "img": "img/eas.jpg"}, {"id": "product10", "title": "Shell Helix HX3 50", "img": "img/shell sall.webp"}, {"id": "product11", "title": "Shell Helix HX5 15W-50", "img": "img/شيل اصفر.webp"}, {"id": "product12", "title": "Shell Helix Ultra 5W-40 SN", "img": "img/شيل 10تلاف.webp"}, {"id": "product13", "title": "MOBIL-1 fsx 1 5W40 4L", "img": "img/mobil 10.webp"}, {"id": "product14", "title": "MOBIL-super 15 & 50 4L", "img": "img/mobil5000.webp"}, {"id": "product15", "title": "فلتر هيونداي & كيا", "img": "img/3.jpg"}, {"id": "product16", "title": "زيت مصر البترول 4 لتر", "img": "img/زيت مصر البترول 1000.jpg"}, {"id": "product17", "title": "زيت مصر البترول 4 لتر", "img": "img/زيت مصر البترول 7500.jpg"}, {"id": "product18", "title": "زيت مصر البترول 5 لتر", "img": "img/زيت مصر البترول.jpg"}, {"id": "product19", "title": "زيت مصر البترول 4 لتر", "img": "img/زيت مصر البترول 10000.jpg"}, {"id": "product20", "title": "زيت مصر البترول 4 لتر", "img": "img/max.webp"}, {"id": "product21", "title": "زيت كوب فاكت", "img": "img/cpc.jpg"}, {"id": "product22", "title": "Shell Helix HX3 20W-50", "img": "img/shell1l.webp"}, {"id": "product23", "title": "Mobil Delvac Legend™ 1350 1", "img": "img/Mobil-Delvac-Legend™-1350-1.webp"}, {"id": "product24", "title": "ديكسرون 6", "img": "img/pwer.webp"}, {"id": "product25", "title": "زيت موبيل سوبر ابيض 3000 - 4 لتر", "img": "img/موبيل ابيض.webp"}, {"id": "product26", "title": "زيت اكس وان X one", "img": "img/WhatsApp Image 2026-09-23 at 5.02.44 PM.jpeg"}, {"id": "product27", "title": "Shell Rimula R3x 20W-50 - 5L", "img": "img/shell11.webp"}, {"id": "product28", "title": "زيت Rimula R1 50 CF - 5L", "img": "img/شل-ابيض-5-لتر.webp"}, {"id": "product29", "title": "زيت فرامل باكم بندكس BENDIX DOT 3 بحجم 400 مل", "img": "img/1.jpg"}, {"id": "product30", "title": "زيت باور Mobil - Mobil ATF 320 GSP 1L", "img": "img/ATF 320_319x319px.png"}, {"id": "product31", "title": "زيت موبيل ابيض 20w50 1 لتر", "img": "img/موبيل ابيض 1l.jpg"}, {"id": "product32", "title": "زيت CPC SF Oil, (20W-50), 4L", "img": "img/cpc1.jpg"}, {"id": "product33", "title": "زيت موتور SAE 50 ديزل التعاون 4L SUPER X API CD/SF", "img": "img/cpc33.jpg"}, {"id": "product34", "title": "زيت Eco Max ATF Dexron III D 1 Liter", "img": "img/WhatsApp Image 2026-09-27 at 6.56.30 PM.jpeg"}, {"id": "product35", "title": "شحم ELAHLIA GREASE YELLOW 400G", "img": "img/الاهليه.jpg"}, {"id": "product36", "title": "بطاريه Blizzaro silverLine 12V 44Ah", "img": "img/Gemini_Generated_Image_x4mc0gx4mc0gx4mc.jpg"}, {"id": "product37", "title": "ايطار Lassa 175/70/13 Turkey Car Tyre", "img": "img/images (1).jpg"}, {"id": "product38", "title": "ايطار TORQUE 13/70R/175", "img": "img/Gemini_Generated_Image_o9gx7ro9gx7ro9gx.jpg"}, {"id": "product39", "title": "ايطار KUMHO ES31 13/70R/175", "img": "img/Kumho_ES31.webp"}, {"id": "product40", "title": "اطار سياره كوردينت ، اوروبي ، 175/70R13 SPORT 2 T", "img": "img/روسي.webp"}, {"id": "product41", "title": "اطار Winda 14R 8/195", "img": "img/winda2.jpg"}, {"id": "product42", "title": "اطار GT RADIAL 175/70R13 CHAMPIRO ECOTEC 82H", "img": "img/1738066470_Eco20Tec.png"}, {"id": "product43", "title": "بطاريه نسر الجافه A70", "img": "img/نسر.jpg"}, {"id": "product44", "title": "ايطار Landsail LS388 15/65/185", "img": "img/xl.jpg"}, {"id": "product45", "title": "ايطار Delinte Dh2 - 195/65r15 Tires", "img": "img/195.jpg"}, {"id": "product46", "title": "ايطار DELINTE 195 R14 TL 106R DELINTE DV2+", "img": "img/d16.webp"}, {"id": "product47", "title": "ايطار Iris Sefar Touring 225/45R17 94W XL Passenger Tire", "img": "img/1555.jpg"}, {"id": "product48", "title": "ايطار Iris Aures 225/60R17 • 103V • All Season • Performance", "img": "img/1555.jpg"}, {"id": "product49", "title": "ايطار Iris Aures 215/65R16 • 103V • All Season • Performance", "img": "img/1555.jpg"}, {"id": "product50", "title": "ايطار Iris SEFAR 205/60R16 96V 340A A", "img": "img/1555.jpg"}, {"id": "product51", "title": "ايطار ايطار BOTO Vantage H-7- 205/55R16 - Car Tire", "img": "img/555555.jpg"}, {"id": "product52", "title": "ايطار Firenze 16/55 ZR/205", "img": "img/55zr.jpg"}, {"id": "product53", "title": "ايطار Firenze 15/60R/195", "img": "img/55zr.jpg"}, {"id": "product54", "title": "ايطار Linglong Crosswind HP010 15/50/195 82v", "img": "img/50505050.jpg"}, {"id": "product55", "title": "ايطار GoldenBridge 18/45ZR/245 100W XL GB500", "img": "img/245.webp"}, {"id": "product56", "title": "ايطار Petlas 15/70/225 10PR TL", "img": "img/petlas.jpg"}, {"id": "product57", "title": "ايطار Torque TQ021 195/65 R15 95H", "img": "img/تورك2.avif"}, {"id": "product58", "title": "ايطار Onyx 14/195 8PR", "img": "img/onyx.webp"}, {"id": "product59", "title": "ايطار Torque TQ021 205 / 65 R16 95 H", "img": "img/تولررك.jpg"}, {"id": "product60", "title": "ايطار Torque TQ021 205 / 65 R15 95 H", "img": "img/25556.webp"}, {"id": "product61", "title": "ايطار Tianfu TF107 175/70 R13 82T", "img": "img/107.webp"}, {"id": "product62", "title": "ايطار Cordiant Sport 2 175/70R13 82H", "img": "img/sport.avif"}, {"id": "product63", "title": "ايطار 185/60R14 CORDIANT_SPORT_2,PS-501 6/k", "img": "img/sport.avif"}, {"id": "product64", "title": "بطاريه SILVER+ MAXXIS 12V 35Ah 275A EN CLASS A", "img": "img/01277.jpeg"}];
+const cfg = window.FIREBASE_CONFIG;
+const $ = id => document.getElementById(id);
+if (!cfg || !cfg.projectId) { $('msg').textContent = 'املأ بيانات firebase-config.js الأول.'; }
+else {
+ const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js");
+ const { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js");
+ const { getFirestore, collection, onSnapshot, doc, setDoc } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
+ const app = initializeApp(cfg), auth = getAuth(app), db = getFirestore(app);
+ const state = {};
+ $('go').onclick = () => signInWithEmailAndPassword(auth, $('em').value.trim(), $('pw').value)
+   .catch(() => $('msg').textContent = 'الإيميل أو الباسورد غلط.');
+ $('logout').onclick = () => signOut(auth);
+ function render() {
+  const q = $('q').value.trim().toLowerCase();
+  $('list').innerHTML = PRODUCTS.filter(p => !q || p.title.toLowerCase().includes(q)).map(p => {
+    const out = state[p.id] === false;
+    return `<div class="row"><img src="${p.img}" alt=""><div class="t">${p.title}</div>
+      <div class="sw ${out ? 'out' : 'in'}" data-id="${p.id}">${out ? 'غير متوفر' : 'متوفر'}</div></div>`;
+  }).join('');
+ }
+ $('q').oninput = render;
+ $('list').onclick = e => {
+  const el = e.target.closest('.sw'); if (!el) return;
+  const id = el.dataset.id, next = state[id] === false;
+  setDoc(doc(db, 'stock', id), { inStock: next }).catch(() => alert('مفيش صلاحية. تأكد إنك مسجل دخول.'));
+ };
+ onAuthStateChanged(auth, u => {
+  $('login').style.display = u ? 'none' : ''; $('panel').style.display = u ? '' : 'none';
+  $('logout').style.display = u ? '' : 'none';
+ });
+ onSnapshot(collection(db, 'stock'), s => { s.forEach(d => state[d.id] = d.data().inStock); render(); });
+ render();
+}
+</script></body></html>
